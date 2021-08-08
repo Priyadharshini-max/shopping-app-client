@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import AllProduct from "./Pages/AllProduct";
+import { BrowserRouter, Switch, Route, Redirect, DefaultRoute, Router } from "react-router-dom";
+import ProductConfig from "./Config/ProductConfig";
+import NavbarComponent from "./Component/NavbarComponent";
+import Cardfn from "./Pages/Card";
+import ModalFn from "./Component/ModalComponent";
+import ProductDetails from "./Component/ProductDetails"
 
-function App() {
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+    <ProductConfig>
+      <BrowserRouter>
+        <NavbarComponent />
+        <Switch>
+          <Route exact path="/" component={AllProduct} />
+          <Route path="/card" component={Cardfn} />
+          <Route path="/modal" component={ModalFn} />
+          <Route path="/ProductDetails" component={ProductDetails} />
+          <Route path="/:name" component={AllProduct} />
+        </Switch>
+      </BrowserRouter>
+    </ProductConfig>
+
+  )
+}
