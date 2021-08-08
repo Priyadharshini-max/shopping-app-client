@@ -1,18 +1,18 @@
 import { ProductContext } from "../Context/ProductContext";
 import React, { useContext } from "react";
-import { Container, Card, Button, Row, Col, Table } from "react-bootstrap";
+import { Container, Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export default function ProductDetails() {
+   // context for product details
   const context = useContext(ProductContext);
 
-  console.log("BuynowItem", context.buyNowItem)
   return (
     <>
       <Container>
         <Table responsive="lg">
           <tr>
-            <td> <div><img variant="top" src={context.buyNowItem.picture} height={330} width={330} />
+            <td> <div><img variant="top" src={context.buyNowItem.picture} alt ="pic" height={330} width={330} />
             <Link to="/modal"><Button type="button" size="sm" className="buynowBtn">Buy Now</Button></Link>
             </div></td>
             <td> <h1 className="mt-2">{context.buyNowItem.product}</h1>

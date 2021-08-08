@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import "../index.css";
 
 function ItemComponent() {
+    // Context to get all product details
     const context = useContext(ProductContext);
     const params = useParams();
     const currentCategories = params.name;
@@ -18,6 +19,7 @@ function ItemComponent() {
     return (
         <Container className="ItemContainer">
             <Row md={4} className="g-4">
+                {/* Filter product based on params */}
                 {context.ProductItems.filter(value => currentCategories === "" ||
                     currentCategories === "allproduct" ? value : value.categories === currentCategories).map((item, index) => {
                         return (

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 export default function Cardfn() {
     const context = useContext(ProductContext);
 
+    //Remove card item function
     const onDeleteByIndex = (item) => {
         context.HandleRemoveCardFn(item);
     }

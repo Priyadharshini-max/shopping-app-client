@@ -7,18 +7,22 @@ export default function ProductConfig({ children }) {
   const [carditem, addcardfn] = useState([]);
   const [buyNowItem, ProductDet] = useState();
 
+  //Add card function
   const HandleAddCardFn = (item) => {
     addcardfn([...carditem, item]);
   }
 
+ //Remove card function
   const HandleRemoveCardFn = (item) => {
     const newCardItem = carditem.filter(value => value.id !== item.id);
     addcardfn(newCardItem);
   }
 
+ //Buynow card function
   const HandleBuyNowCard = (item) => {
     ProductDet(item);
   }
+  
   return (
     <>
       <ProductContext.Provider

@@ -2,7 +2,9 @@ import { Modal, Button } from 'react-bootstrap';
 import React, { useState } from "react";
 
 export default function ModalFn() {
+  //For open modal
   const [show, setShow] = useState(true);
+  //For close modal
   const handleClose = () => setShow(false);
 
   return (
