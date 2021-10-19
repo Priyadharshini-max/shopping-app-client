@@ -16,7 +16,9 @@ export default function Cardfn() {
             <Container className="ItemContainer">
                 <Row md={4} className="g-4">
 
-                    {context.carditem.map((item, index) => {
+                    {
+                     context.carditem.length == 0 ? <h1 className="EmptyCard"><i className="fas fa-shopping-cart"></i> Card is Empty</h1> : (
+                    context.carditem.map((item, index) => {
                         return (
                             <Col key={index}>
                                 <Card>
@@ -34,7 +36,9 @@ export default function Cardfn() {
                                 </Card>
                             </Col>
                         )
-                    })}
+                    }
+                    )
+                     )}
                 </Row>
             </Container>
         </>

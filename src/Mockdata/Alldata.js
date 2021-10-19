@@ -24,7 +24,8 @@ export  const productList =  [{
     addCard:"Add To Card",
     buyNow:"Buy Now",
     categories: "fancyItems"
-}, {   id:3,
+}, {  
+     id:3,
     picture: lipstick,
     product: "LipStick",
     rate: "$30.00 - $50.00",

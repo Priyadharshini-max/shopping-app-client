@@ -34,3 +34,8 @@ body
     margin-top: 50px;
     margin-left: 120px; 
 }
+
+.EmptyCard{
+    margin-left: 35%;
+   color: darkgray  ;
+}

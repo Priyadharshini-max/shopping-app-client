@@ -11,7 +11,7 @@ function NavbarComponent() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="light">
       <Container>
-        <Navbar.Brand >Start Bootstrap</Navbar.Brand>
+        <Navbar.Brand >Let's Shop</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
