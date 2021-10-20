@@ -1,15 +1,34 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { ProductContext } from "../Context/ProductContext";
 import { Container, Card, Button, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function Cardfn() {
+    const API_URL = "http://localhost:3001/postproduct";
     const context = useContext(ProductContext);
-
+    const history = useHistory();
+        useEffect(()=>{
+         if(!localStorage.getItem("user")){
+            history.push("/")
+         }   
+        },[])
     //Remove card item function
-    const onDeleteByIndex = (item) => {
-        context.HandleRemoveCardFn(item);
+    const onDeleteByIndex = async(item) => {
+     await context.HandleRemoveCardFn(item);
+        try{
+              const {id,product,picture,rate} = item;
+              const mailid = localStorage.getItem("user");
+              const {data} = await axios.post(API_URL,{
+                mailid,id,product,picture,rate
+              })
+              console.log(data);
+            }catch(err){
+              console.log(err);
+            }
     }
+
 
     return (
         <>

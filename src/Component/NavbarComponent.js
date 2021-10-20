@@ -19,10 +19,17 @@ function NavbarComponent() {
             <Nav.Link as={Link}  to="/electronics">Electronics</Nav.Link>
             <Nav.Link as={Link}  to="/fancyItems">Fancy</Nav.Link>
           </Nav>
+        
           <Nav>
-            <Link to="/card"> <Button variant="outline-dark"><i className="fas fa-shopping-cart"></i>
-              Card <Badge pill bg="secondary">{context.carditem.length}</Badge>
-            </Button></Link>
+            <Nav.Link as={Link} to="/card"> <Button variant="outline-dark"><i className="fas fa-shopping-cart"></i>
+            <span>  Cards</span>  <Badge pill bg="secondary">{context.carditem.length}</Badge>
+            </Button></Nav.Link>
+            <Nav.Link as={Link} to="/orderedproduct"> <Button variant="outline-dark"><i className="fas fa-shopping-bag"></i>
+              <span>  My Orders</span> 
+            </Button></Nav.Link>
+            <Nav.Link as={Link} to="/"> <Button variant="outline-dark" onClick={()=>{localStorage.clear()}}><i className="fas fa-sign-out-alt"></i>
+              <span>  Sign Out</span> 
+            </Button></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -1,5 +1,5 @@
 import { Modal, Button } from 'react-bootstrap';
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useHistory } from 'react-router';
 
 export default function ModalFn() {
@@ -11,6 +11,11 @@ export default function ModalFn() {
     setShow(false)
     history.push("/card");
   };
+     useEffect(()=>{
+         if(!localStorage.getItem("user")){
+            history.push("/")
+         }   
+     },[])
 
   return (
     <>

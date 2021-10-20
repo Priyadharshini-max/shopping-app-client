@@ -1,7 +1,16 @@
 import { Container } from 'react-bootstrap';
 import ItemComponent from "../Component/ItemComponent";
+import { useHistory } from 'react-router';
+import React, { useEffect } from "react";
 
 function AllProduct() {
+  const history = useHistory();
+  useEffect(()=>{
+    if(!localStorage.getItem("user")){
+       history.push("/")
+    }   
+  },[])
+
   return (
     <>
       <div className="HeaderDiv">

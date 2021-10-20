@@ -1,11 +1,29 @@
 import { ProductContext } from "../Context/ProductContext";
-import React, { useContext } from "react";
+import React, { useContext,useEffect } from "react";
 import { Container, Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function ProductDetails() {
+  const API_URL = "http://localhost:3001/postproduct";
+
    // context for product details
   const context = useContext(ProductContext);
+
+  const addBuynowProducts = async() =>{
+    try{
+      const {buyNowItem:{id,product,picture,rate}} = context;
+      const mailid = localStorage.getItem("user");
+      
+      const {data} = await axios.post(API_URL,{
+        mailid,id,product,picture,rate
+      })
+      
+      console.log(data);
+    }catch(err){
+      console.log(err);
+    }
+  }
 
   return (
     <>
@@ -13,7 +31,7 @@ export default function ProductDetails() {
         <Table responsive="lg">
           <tr>
             <td> <div><img variant="top" src={context.buyNowItem.picture} alt ="pic" height={330} width={330} />
-            <Link to="/modal"><Button type="button" size="sm" className="buynowBtn">Buy Now</Button></Link>
+            <Link to="/modal"><Button type="button" size="sm" className="buynowBtn" onClick={addBuynowProducts}>Buy Now</Button></Link>
             </div></td>
             <td> <h1 className="mt-2">{context.buyNowItem.product}</h1>
               <p>
