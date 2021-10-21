@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-const API_URL = "http://localhost:3001/login";
+const API_URL = "https://shopping-app-api01.herokuapp.com/login";
 
 export default class Login extends Component {
     constructor(props) {

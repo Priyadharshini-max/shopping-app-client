@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function ProductDetails() {
-  const API_URL = "http://localhost:3001/postproduct";
+  const API_URL = "https://shopping-app-api01.herokuapp.com/postproduct";
 
    // context for product details
   const context = useContext(ProductContext);

@@ -2,7 +2,7 @@ import Table from 'react-bootstrap/Table';
 import axios from "axios";
 import { Component } from 'react';
 
-const API_URL = "http://localhost:3001/getproduct";
+const API_URL = "https://shopping-app-api01.herokuapp.com/getproduct";
 
 export default class OrderComponent extends Component{
     constructor(props){
